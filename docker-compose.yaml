@@ -12,4 +12,3 @@ services:
   rabbitmq:
     platform: linux
     image: rabbitmq:latest
-   
