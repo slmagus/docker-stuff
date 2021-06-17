@@ -1,11 +1,15 @@
-version: "3.9"  # optional since v1.27.0
+version: "3.3"  # optional since v1.27.0
 services:
   dotnet:
+    platform: windows
     image:
-      mcr.microsoft.com/dotnet/samples:aspnetapp
-    ports:
-      - "8000:80"
+      mcr.microsoft.com/windows:20H2
+    command: curl desktop_rabbitmq_1:15692
     links:
       - rabbitmq
+    depends_on: 
+      - "rabbitmq"
   rabbitmq:
+    platform: linux
     image: rabbitmq:latest
+   
